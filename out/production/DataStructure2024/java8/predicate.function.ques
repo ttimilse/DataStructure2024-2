@@ -1,0 +1,25 @@
+what are predicate?
+- Predicate is a predefined interface(having only one abs method).
+- public boolean test(T t)
+- whenever we want to check some boolean condition they you go for Predicate.
+- Advantage of predicate is code re-usability.
+
+Type parameter and return type of predicate?
+- Input to predicate can be anything like String, Integer, Employee
+- Return type is not required as its always boolean only
+
+What is Predicate joining?
+- You can combine
+- and, or and negate
+
+What are function?
+- Function is predefine Functional interface.
+- apply(T t)
+- take 1 input and return 1 result
+- In function return type is not fixed hence we declare both input and return type.
+
+What is Functional chaining?
+- we can combine/ chain multiple functions together with andThen.
+- f1.andThen(f2).apply(input)
+- f2.andThen(f1).apply(input)
+

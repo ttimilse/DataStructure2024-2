@@ -1,0 +1,102 @@
+why Java 8? main agenda behind java 8?
+-> Significant reason for introducing JAVA 8 was to introduce Conciseness  in the code.
+-> Java bring in Functional Programming which is enabled by Lambda expression.
+
+What are main advantage of using Java 8?
+- compact code(less boiler plate code - more repeated code)
+- more readable and reusable code
+- More testable code
+_ parallel operation
+
+What is lambda expression?
+ - Lambda expression is an anonymous function( without name, return type and access modifier
+ and having one lambda (->) symbol).
+
+
+What are functional interfaces?
+- Functional interfaces are those interfaces which can have only one abstract method.
+- it can have any number of static and default methods. No restriction on that.
+
+How lambda expression related tp functional interface?
+- Functional interface is used to provide reference to lambda expression.
+- Comparator<String> c = (s1,s2)->s1.compareTo(s2);
+- Comparator<String> c - functional interface
+- (s1,s2)->s1.compareTo(s2) - lambda expression
+
+Can you create your own functional interface?
+- Yes. Annotate that with @FunctionalInterface
+- Define only one abstract method but you can have any number of default and static methods.
+
+
+what is method reference?
+- Method reference is replacement of lambda expression. It is used to refer method of
+functional interface to an existing method. Mainly it is used for code re-usability.
+- FI's abstract method can be mapped to specific existing method using double colon operator
+(::). this is method reference.
+- Hence Method reference is an alternative to LE.
+- Whenever we have existing Implementation of Abstract method of our FI then we can go
+for method reference. If no such method like testImpl() is available then go for LE.
+
+what are DEFAULTS methods?
+- Default method is a way of for adding new methods to the interface without
+affecting the implementing class. Hence with the new feature Java people defended
+many compile errors that may arise due to unimplementable methods of interface.
+- The use of these default methods is "Backward Compatibility" which means if JDK
+modifies any interface(without default) then the classes which implement this interface
+will break.
+
+Is it necessary to override default methods?
+- Default method have dummy implementation.
+- implementation class if ok with dummy implementation then use dummy impl of default methods.
+- if not satisfied then they can override and provide their own impl.
+
+Is default keyword one of the access modifier?
+- Default is not the access modifier like public or private or protected.
+- For default access modifier we do not use any keyword.
+- Hence default keyword was only used in classes till 1.8 version for switch case
+but never in interface.
+- Now its used for default method in interface to provide a default implementation
+for all implementing class to use.
+
+
+How to override default methods?
+- You can override default method by keeping same method signature(name + arguments).
+- Removing default keywords because in class default keyword is use in switch case to denote
+ default case if no previous case matched. So you can use Default keyword in class.
+- Adding Public as access modifier because in java 8, by default all methods are public so in child
+you cannot reduce visibility of override default method.
+ - Giving your own implementation.
+
+ Can you use hascode() default implementation in Interface?
+ - You cannot give your default implementation of hascode() in interface for all implementation
+ classes to use.
+ - we are not allowed to override Object class's methods as default method in interface else
+  we will get CTE.
+ - All implementation classes by default has access to all methods of object class.
+
+ How Default methods in interface cope up with Diamond problem?
+ - Diamond problem of default methods of interface:
+    - if 2 implementation interface contains same default method then that's diamond problem.
+ - In java, in such situation, code will not compile.
+ - Solution to diamond problem:
+        - Use interfaceName.super.methodName();
+
+
+ Why static method introduced in Java 8?
+
+ - Only reason for introducing static methods in interface is that you can call those methods
+ with just interface name. No need to create class and then its object.
+ - Since interface never contains:
+        - constructors
+        - static blocks
+        - Nothing costly in term of memory and performance.
+ - Hence we don't need to create object and hence if you have everything static, then for interface
+ rather than class.
+ - You have this flexibility only after java 8, before you need to class.
+
+ Are static methods available to implementing classes by default?
+ - static methods are not available to implementing classes.
+ - they are not default methods. They are static.
+ - Hence you can call these methods using Interface name explicitly from the implementing classes
+ as implementing classes wont have access to these methods directly.(This is the disadvantage of
+ static methods of interface that is not available to implementing classes.)
